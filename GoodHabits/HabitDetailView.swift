@@ -63,7 +63,6 @@ struct HabitDetailView: View {
             }
             
         }
-        .navigationTitle(habit.name)
         .padding(.horizontal)
     }
 }

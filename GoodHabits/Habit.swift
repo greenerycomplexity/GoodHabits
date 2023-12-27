@@ -9,11 +9,31 @@ import SwiftUI
 
 @Observable
 class Habits {
-    var items = [HabitItem]()
+    let saveKey = appData.habitSaveKey
+    
+    var items = [HabitItem]() {
+        didSet {
+            if let encoded = try? JSONEncoder().encode(items) {
+                UserDefaults.standard.set(encoded, forKey: saveKey)
+            }
+        }
+    }
+    
+    init() {
+        if let savedData = UserDefaults.standard.data(forKey: saveKey) {
+            if let decoded = try? JSONDecoder().decode([HabitItem].self, from: savedData) {
+                items = decoded
+                return
+            }
+        }
+        
+        items = []
+    }
+    
 }
 
-struct HabitItem: Identifiable {
-    let id = UUID()
+struct HabitItem: Identifiable, Codable {
+    var id = UUID()
     let name: String
     let description: String
     var count: Int?

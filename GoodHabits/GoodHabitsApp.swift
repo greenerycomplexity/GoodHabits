@@ -18,4 +18,6 @@ struct GoodHabitsApp: App {
 
 struct appData {
     static let name = "GoodHabits"
+    static let habitSaveKey = "HabitItems"
+
 }
