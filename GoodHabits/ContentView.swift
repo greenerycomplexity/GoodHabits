@@ -11,7 +11,6 @@ struct HabitItemView: View {
     let habit: HabitItem
     
     var body: some View {
-        
         HStack {
             Text(habit.displayCount)
                 .font(.headline)
@@ -42,6 +41,9 @@ struct ContentView: View {
                         HabitItemView(habit: habit)
                     }
                 }
+                .onDelete(perform: { indexSet in
+                    habits.items.remove(atOffsets: indexSet)
+                })
             }
             .navigationTitle(appData.name)
             .toolbar {
