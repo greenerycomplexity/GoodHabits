@@ -99,7 +99,7 @@ struct HabitDetailView: View {
 }
 
 #Preview {
-    let habit = HabitItem(name: "Biking", description: "This is so fun and productive haha")
+    let habit = HabitItem(name: "Biking", description: "This is so fun and productive haha", icon: "🚴‍♂️")
     let habits = Habits()
     return HabitDetailView(habit: habit, habits: habits)
 }

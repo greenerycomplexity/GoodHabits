@@ -36,6 +36,7 @@ struct HabitItem: Identifiable, Codable, Equatable {
     var id = UUID()
     let name: String
     let description: String
+    let icon: String
     var completions = [Date]()
     
     var displayCount: String {

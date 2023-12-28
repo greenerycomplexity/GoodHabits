@@ -14,6 +14,7 @@
 		744BDD4B2B3C076C00874E56 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744BDD4A2B3C076C00874E56 /* AddHabitView.swift */; };
 		744BDD4D2B3C0B1A00874E56 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744BDD4C2B3C0B1A00874E56 /* Habit.swift */; };
 		744BDD4F2B3C14CD00874E56 /* HabitDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744BDD4E2B3C14CD00874E56 /* HabitDetailView.swift */; };
+		744BDD512B3D64E600874E56 /* EmojiPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744BDD502B3D64E600874E56 /* EmojiPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		744BDD4A2B3C076C00874E56 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 		744BDD4C2B3C0B1A00874E56 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		744BDD4E2B3C14CD00874E56 /* HabitDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailView.swift; sourceTree = "<group>"; };
+		744BDD502B3D64E600874E56 /* EmojiPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				744BDD3E2B3C02FF00874E56 /* ContentView.swift */,
 				744BDD4C2B3C0B1A00874E56 /* Habit.swift */,
 				744BDD4A2B3C076C00874E56 /* AddHabitView.swift */,
+				744BDD502B3D64E600874E56 /* EmojiPickerView.swift */,
 				744BDD4E2B3C14CD00874E56 /* HabitDetailView.swift */,
 				744BDD402B3C030100874E56 /* Assets.xcassets */,
 				744BDD422B3C030100874E56 /* Preview Content */,
@@ -149,6 +152,7 @@
 				744BDD3F2B3C02FF00874E56 /* ContentView.swift in Sources */,
 				744BDD4F2B3C14CD00874E56 /* HabitDetailView.swift in Sources */,
 				744BDD3D2B3C02FF00874E56 /* GoodHabitsApp.swift in Sources */,
+				744BDD512B3D64E600874E56 /* EmojiPickerView.swift in Sources */,
 				744BDD4D2B3C0B1A00874E56 /* Habit.swift in Sources */,
 				744BDD4B2B3C076C00874E56 /* AddHabitView.swift in Sources */,
 			);
