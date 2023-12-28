@@ -27,6 +27,8 @@ struct HabitItemView: View {
 }
 
 
+
+
 struct ContentView: View {
     var habits = Habits()
     @State private var showAddHabitView = false
@@ -36,7 +38,7 @@ struct ContentView: View {
             List {
                 ForEach (habits.items) { habit in
                     NavigationLink {
-                        HabitDetailView(habit: habit)
+                        HabitDetailView(habit: habit, habits: habits)
                     } label: {
                         HabitItemView(habit: habit)
                     }
@@ -47,6 +49,10 @@ struct ContentView: View {
             }
             .navigationTitle(appData.name)
             .toolbar {
+                if habits.items.count > 0 {
+                    EditButton()
+                }
+                
                 Button("Add Habit", systemImage: "plus.circle") {
                     showAddHabitView = true
                 }
@@ -55,13 +61,19 @@ struct ContentView: View {
                 AddHabitView(habits: habits)
             }
         }
-       
+        
     }
 }
 
 #Preview {
     let habits = Habits()
-    habits.items.append(HabitItem(name: "Biking", description: "This is fun"))
-    
-    return ContentView(habits: habits)
+    if habits.items.count >= 3 {
+        return ContentView(habits: habits)
+    } else {
+        habits.items.removeAll()
+        let newHabit = HabitItem(name: "Plants", description: "Volumptious")
+        habits.items.append(newHabit)
+        return ContentView(habits: habits)
+    }
 }
+    
