@@ -32,20 +32,14 @@ class Habits {
     
 }
 
-struct HabitItem: Identifiable, Codable {
+struct HabitItem: Identifiable, Codable, Equatable {
     var id = UUID()
     let name: String
     let description: String
-    var count: Int?
+    var completions = [Date]()
     
     var displayCount: String {
-        if let count = count {
-            return String(count)
-        } else {
-            return "0"
-        }
+        String(completions.count)
     }
 }
-
-
 
