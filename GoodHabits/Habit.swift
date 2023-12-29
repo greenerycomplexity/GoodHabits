@@ -42,5 +42,9 @@ struct HabitItem: Identifiable, Codable, Equatable {
     var displayCount: String {
         String(completions.count)
     }
+    
+    var count: Int {
+        completions.count
+    }
 }
 
