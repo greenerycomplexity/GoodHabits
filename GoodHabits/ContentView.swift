@@ -11,6 +11,12 @@ struct ContentView: View {
     var habits = Habits()
     @State private var showAddHabitView = false
     
+    @State private var treeScaleAmount = 0.2
+    @State private var treeOpacityAmount = 0.5
+    
+    let greetingTitle = "G'day!"
+    let greetingMessage = "What are your plans today?"
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -21,10 +27,10 @@ struct ContentView: View {
                 VStack {
                     HStack {
                         VStack (alignment: .leading) {
-                            Text("G'day!")
+                            Text(greetingTitle)
                                 .font(.largeTitle.bold())
                                 .fontDesign(.rounded)
-                            Text("What are your plans today?")
+                            Text(greetingMessage)
                         }
                         
                         .frame(width: 220, height: 150)
@@ -33,23 +39,31 @@ struct ContentView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 150)
+                            .scaleEffect(treeScaleAmount, anchor: .bottom)
+                            .opacity(treeOpacityAmount)
+                            .onAppear {
+                                withAnimation (.bouncy(duration: 1.5)) {
+                                    treeOpacityAmount = 1
+                                    treeScaleAmount = 1
+                                }
+                            }
                     }
                     
                     
                     
                     HabitListView(habits: habits)
-                        .toolbar {
-                            if habits.items.count > 0 {
-                                ToolbarItem (placement: .topBarLeading) {
-                                    EditButton()
-                                }
-                            }
-                            ToolbarItem (placement: .topBarTrailing) {
-                                Button("Add Habit", systemImage: "plus.circle") {
-                                    showAddHabitView = true
-                                }
-                            }
-                        }
+//                        .toolbar {
+//                            if habits.items.count > 0 {
+//                                ToolbarItem (placement: .topBarLeading) {
+//                                    EditButton()
+//                                }
+//                            }
+//                            ToolbarItem (placement: .topBarTrailing) {
+//                                Button("Add Habit", systemImage: "plus.circle") {
+//                                    showAddHabitView = true
+//                                }
+//                            }
+//                        }
                     
                     
                     //                Add new habit button
