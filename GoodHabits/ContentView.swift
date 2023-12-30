@@ -17,8 +17,11 @@ struct ContentView: View {
     let greetingTitle = "G'day!"
     let greetingMessage = "What are your plans today?"
     
+    
+    @State private var navPath = [HabitItem]()
+    
     var body: some View {
-        NavigationStack {
+        NavigationStack (path: $navPath) {
             ZStack {
                 Color.gray.opacity(0.2)
                     .ignoresSafeArea()
@@ -49,22 +52,10 @@ struct ContentView: View {
                             }
                     }
                     
-                    
-                    
                     HabitListView(habits: habits)
-//                        .toolbar {
-//                            if habits.items.count > 0 {
-//                                ToolbarItem (placement: .topBarLeading) {
-//                                    EditButton()
-//                                }
-//                            }
-//                            ToolbarItem (placement: .topBarTrailing) {
-//                                Button("Add Habit", systemImage: "plus.circle") {
-//                                    showAddHabitView = true
-//                                }
-//                            }
-//                        }
-                    
+                        .navigationDestination(for: HabitItem.self) { habit in
+                            HabitDetailView(navPath: $navPath, habit: habit, habits: habits)
+                        }
                     
                     //                Add new habit button
                     Button {
@@ -104,9 +95,7 @@ struct HabitListView: View {
         //                Scroll view of all habits
         ScrollView {
             ForEach (habits.items) { habit in
-                NavigationLink {
-                    HabitDetailView(habit: habit, habits: habits)
-                } label: {
+                NavigationLink (value: habit) {
                     HStack {
                         Text(habit.icon)
                             .font(.system(size: 35))
@@ -155,10 +144,6 @@ struct HabitListView: View {
                 }
                 .padding(.horizontal)
             }
-            .onDelete(
-                perform: { indexSet in
-                    habits.items.remove(atOffsets: indexSet)}
-            )
         }
     }
 }

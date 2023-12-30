@@ -32,7 +32,7 @@ class Habits {
     
 }
 
-struct HabitItem: Identifiable, Codable, Equatable {
+struct HabitItem: Identifiable, Codable, Equatable, Hashable {
     var id = UUID()
     let name: String
     let description: String

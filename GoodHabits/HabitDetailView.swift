@@ -16,6 +16,7 @@ struct RectangleDivider: View {
 }
 
 struct HabitDetailView: View {
+    @Binding var navPath: [HabitItem]
     let emptyCompletionsTitle = "None so far, get into the habit today!"
     
     var habit: HabitItem
@@ -30,6 +31,14 @@ struct HabitDetailView: View {
                     .foregroundStyle(.primary)
                 
                 Text(habit.description)
+                
+                Button("Delete activity", role: .destructive) {
+                    if let index = habits.items.firstIndex(of: habit) {
+                        habits.items.remove(at: index)
+                        navPath.removeAll()
+                    }
+                }
+                .buttonStyle(.borderedProminent)
                 
                 Text("Previous completions: \(habit.displayCount)")
                 Spacer()
@@ -101,5 +110,6 @@ struct HabitDetailView: View {
 #Preview {
     let habit = HabitItem(name: "Biking", description: "This is so fun and productive haha", icon: "🚴‍♂️")
     let habits = Habits()
-    return HabitDetailView(habit: habit, habits: habits)
+    @State var navPath = [HabitItem]()
+    return HabitDetailView(navPath: $navPath, habit: habit, habits: habits)
 }
