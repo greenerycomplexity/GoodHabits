@@ -38,6 +38,7 @@ struct HabitDetailView: View {
                     VStack {
                         Text(habit.icon)
                             .font(.system(size: 50))
+                            .shadow(radius: 3)
                         
                         Text(habit.name)
                             .font(.title.bold())
@@ -113,6 +114,13 @@ struct CompletionListView: View {
     var habit: HabitItem
     
     var body: some View {
+        if habit.count == 0 {
+            Text("Nothing to show yet, start this habit today!")
+                .font(.subheadline)
+                .padding(.top, 3)
+        }
+        
+        
         //                Scroll view of all habit completions
         ScrollView {
             ForEach(habit.completions, id:\.self) { completion in
