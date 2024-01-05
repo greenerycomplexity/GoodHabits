@@ -68,20 +68,33 @@ struct HabitDetailView: View {
                 }
                 .padding(.bottom)
                 
-                
-                //                List of previous completions
-                HStack {
-                    VStack (alignment: .leading) {
-                        Text("Previous completions")
-                            .font(.title2.bold())
-                            .fontDesign(.rounded)
-                        
-                        CompletionListView(habit: habit)
+                VStack (spacing: 20) {
+                    HStack {
+                        VStack (alignment: .leading) {
+                            Text("Description")
+                                .font(.title2.bold())
+                                .fontDesign(.rounded)
+                            
+                            Text(habit.description)
+                                .font(.subheadline)
+                            
+                        }
+                        Spacer()
                     }
-                    Spacer()
+                    
+                    //                List of previous completions
+                    HStack {
+                        VStack (alignment: .leading) {
+                            Text("Previous completions")
+                                .font(.title2.bold())
+                                .fontDesign(.rounded)
+                            
+                            CompletionListView(habit: habit)
+                        }
+                        Spacer()
+                    }
                 }
                 .padding(.horizontal)
-                
                 Spacer()
                 
             }
@@ -94,10 +107,11 @@ struct HabitDetailView: View {
                 Button("Delete") {
                     showDeleteWarning = true
                 }
+                .foregroundStyle(.red)
             }
         }
         .alert(deleteWarningTitle, isPresented: $showDeleteWarning) {
-            Button("Okay", role: .destructive) {
+            Button("Delete", role: .destructive) {
                 if let index = habits.items.firstIndex(of: habit) {
                     habits.items.remove(at: index)
                     navPath.removeAll()
@@ -117,7 +131,7 @@ struct CompletionListView: View {
         if habit.count == 0 {
             Text("Nothing to show yet, start this habit today!")
                 .font(.subheadline)
-                .padding(.top, 3)
+//                .padding(.top, 3)
         }
         
         
