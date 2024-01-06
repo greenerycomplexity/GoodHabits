@@ -6,7 +6,7 @@ By Mason Cao - Dec 2023.
 ## Features
 - Adding and deleting habits. 
 - Customise a habit's associated emoji.
-- Add new completions to a specific habit with precise time and dates logged.
+- Add new completions to a specific habit, with precise time and dates logged.
 - Automatic saving of user data into a JSON format, and implements Apple's UserDefaults class to persist data.
 
 ## Screenshots
