@@ -12,10 +12,10 @@ By Mason Cao - Dec 2023.
 <details>
   <summary><h3>Future goals</h3></summary>
 
-- Ability to delete previous completions from a habit
-- Dynamic themes (currently looks best in Dark mode)
-- More greetings in Home view
-- Relative sizing of "Add habit" button in Home view (currently fixed size)
+- Ability to delete previous completions from a habit.
+- Dynamic themes (currently looks best in Dark mode).
+- More greetings in Home view.
+- Relative sizing of "Add habit" button in Home view (currently fixed size).
 </details>
 
 ## Screenshots
