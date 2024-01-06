@@ -9,6 +9,15 @@ By Mason Cao - Dec 2023.
 - Add new completions to a specific habit, with precise time and dates logged.
 - Automatic saving of user data into a JSON format, and implements Apple's UserDefaults class to persist data.
 
+<details>
+  <summary><h3>Future goals</h3></summary>
+
+- Ability to delete previous completions from a habit
+- Dynamic themes (currently looks best in Dark mode)
+- More greetings in Home view
+- Relative sizing of "Add habit" button in Home view (currently fixed size)
+</details>
+
 ## Screenshots
 - Home screen  
 <img src="GoodHabits Previews/Home View.png" width="250">
